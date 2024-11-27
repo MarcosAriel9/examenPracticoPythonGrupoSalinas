@@ -1,0 +1,33 @@
+Se desarrollara un aplicación para intercambio de divisas con su servicios respectivos para cotizar y comprar 
+Se tiene que generar una api con 5 recursos para simular un intercambio de divisas
+  *  Recurso para cotizar el intercambio de monedas tomando en cuenta el tipo de cambio
+     de un servicio de terceros (https://cambio.today/api)
+  *  Recurso para intercambiar las monedas deseadas
+  *  Recurso para visualizar los movimientos que el usuario ha realizado con filtrado
+  *  Realizar 3 pruebas unitarias por cada servicio
+NOTA:
+  - El usuario tendrá limites diarios para poder transaccionar
+  - Simular un usuario existente
+  - Utilizar base de datos a elección   
+  - El servicio tiene que estas dockerizado
+
+Api Key	54987|PkVT7oUVrjaBWmitnqQg	
+
+consultas:
+1.-
+http://localhost:8000/api/quote-exchange-rate/?from_currency=USD&to_currency=EUR&amount=100
+
+2.-
+http://localhost:8000/api/exchange-currency/
+{
+  "user_id": 1,
+  "from_currency": "USD",
+  "to_currency": "EUR",
+  "amount": 5
+}
+
+3.-
+http://localhost:8000/api/view-transactions/?user_id=1&from_date=2024-11-01&to_date=2024-11-30
+
+  docker-compose exec web python manage.py makemigrations
+  docker-compose exec web python manage.py migrate
